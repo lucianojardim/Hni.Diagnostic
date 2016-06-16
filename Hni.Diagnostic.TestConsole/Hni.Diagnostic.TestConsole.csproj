@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1D809523-8D7D-4796-8800-F0FAAA7F532A}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{482C4105-1672-4789-B282-18EF812ABAEF}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Hni.Diagnostic.Gathering</RootNamespace>
-    <AssemblyName>Hni.Diagnostic.Gathering</AssemblyName>
+    <RootNamespace>Hni.Diagnostic.TestConsole</RootNamespace>
+    <AssemblyName>Hni.Diagnostic.TestConsole</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,8 +44,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,54 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Diagnostics.cs" />
-    <Compile Include="Diagnostic.cs">
-      <DependentUpon>HniDiagnostic.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HniDiagnostic.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HniDiagnostic.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HniDiagnostic.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HniDiagnostic.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HniDiagnostic.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HniDiagnostic.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="HniDiagnostic.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HniDiagnostic.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
-    <None Include="HniDiagnostic.edmx.diagram">
-      <DependentUpon>HniDiagnostic.edmx</DependentUpon>
-    </None>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HniDiagnostic.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HniDiagnostic.edmx</DependentUpon>
-      <LastGenOutput>HniDiagnostic.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="HniDiagnostic.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HniDiagnostic.edmx</DependentUpon>
-      <LastGenOutput>HniDiagnostic.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <ProjectReference Include="..\Hni.Diagnostic.Gathering\Hni.Diagnostic.Gathering.csproj">
+      <Project>{1d809523-8d7d-4796-8800-f0faaa7f532a}</Project>
+      <Name>Hni.Diagnostic.Gathering</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
